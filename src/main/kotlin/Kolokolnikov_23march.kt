@@ -1,121 +1,68 @@
 fun main() {
-    println("\nКолокольніков на 21.03.2023 \n")
-    var sfu = readLine()
-    println(sfu)
-
-    var num = 10
-    if (num == 9){
-        println(2)
-    }
-    else if(num == 10){
-        println("10")
-    }
-    else{
-        println("3")
-    }
-
-    var num1 = 10
-    var num2 = 9
-    val num3 = if(num1 > num2) num1 else num2
-    println(num3)
-
+    println("\nКолокольников на 23.03.2023 \n")
     /*
-    val num3 = if(num1 > num2){
-        num1 else num2
-    }
-    println(num3)
-    */
+    Написати валідацію для паролю.
+    Користувач має ввести пароль з консолі, який повинен відповідати наступним критеріям:
+    1. Довжина паролю має бути більшою за 8 знаків
+    2. У паролі має бути хоча б одна буква
+    3. У паролі має бути хоча б одна цифра
+    При введенні користувачем валідного паролю в консоль має вивестись: "Пароль успішно встановлено. Ваш пароль <пароль,
+який встановили>"
+    При невідповідності паролю вказаним вище нормам має виводитись підказка: "пароль має бути довшим за 8 символів",
+"пароль має містити хоча б одну цифру", "пароль має містити хоча б одну букву".
+    Якщо пароль не відповідає кільком правилам валідації - виводимо перше, якому не відповідає.
+     */
 
-    val IsOn = true
-    when(IsOn){
-        true -> println("On")
-        false -> println("Off")
-    }
+    // Определение начальных переменных.
+    var pw: String
+    var len: Boolean
+    var digit: Boolean
+    var letter: Boolean
 
-    val IsOn2 = 16
-    when(IsOn2){
-        20 -> println("On")
-        30 -> println("Off")
-        else -> println("error")
-    }
+    // Инструкция для пользователя.
+    println("Пароль должен содержать не менее 9 знаков и включать в себя как минимум по одной цифре и букве.")
 
-    val IsOn3 = 3
-    when(IsOn3){
-        20, 3 -> println("On")
-        30 -> println("Off")
-        else -> println("error")
-    }
-
-    val x = 5
-    var y = 10
-    var z = 5
-    when(x){
-        y-z -> println("x is equal to 5")
-        y+z -> println("x is equal to 15")
-    }
-    when{
-        (x < y) -> println("x<y")
-        (y > z) -> println("x>y")
-    }
-
-    for (i in 1 .. 4){
-        for(j in 1..4){
-            print("${i*j} \t")
-        }
-        println()
-    }
-
-    var i = 0
-    while (i < 4){
-        println(i)
-        i++
-    }
-
-    i = 0
+    // Основной цикл для получения от пользователя правильного пароля при регистрации.
     do{
-        println("hello")
-        i++
-    } while (i<-1)
 
-    i = 0
-    var i1 = i++
-    println(i1)
+        // Назначение начальных значений переменным для каждой итерации.
+        len = false
+        digit = false
+        letter = false
 
-    for (n in 1..9){
-        if (n==3) continue
-        println(n*2)
-    }
+        // Запрос на ввод пароля пользователем.
+        print("\nВведите пароль: ")
+        pw = readln()
 
+        // Условия для проверки правильности введённого пароля.
+        if (pw.length > 8) {
+            len = true
+        }
+        for (i in pw){
+            if (i.isDigit()){
+                digit = true
+            }
+        }
+        for (i in pw){
+            if (i.uppercase() != i.lowercase()){
+                letter = true
+            }
+        }
 
-    val arr1 = intArrayOf(1, 2, 3)
-    println(arr1[0])
-    println(arr1.size)
+        // Указания для пользователя при наличии ошибок в введённом пароле.
+        if (!len){
+            println("Пароль должен быть длиннее 8 символов")
+        }else if (!digit){
+            println("Пароль должен содержать хотя бы одну цифру")
+        }else if (!letter){
+            println("Пароль должен содержать хотя бы одну букву")
+        }
 
-    for (index in arr1.indices){
-        println(arr1[index])
-    }
+    // Результирующая строка цикла, которая определит, что пароль указан правильно или нужно затребоать новый.
+    }while (!len || !digit || !letter)
 
-    val arr2 = intArrayOf(4, 5, 6)
-    val arr3 = arr1 + arr2
-    println(arr3[5])
-
-    var arr4 = arrayOfNulls<String>(3)//[null, null, null]
-
-    var arr5 = emptyArray<String>()
-    arr5 += "1"
-
-    var arr6 = Array(5, {i -> i*2})
-    for (el in arr6){
-        println(el)
-    }
-    println(arr6[2])
-
-    println(arr6.contentToString())
-
-    var arr7 = arrayOf(4, 8, 2, 1, 9)
-    arr7.contentToString()
-    var arr8 = arr7.sort()
-    println(arr8)
-
+    // Ответ пользователю, что пароль установлен.
+    print("Пароль успешно установлен. Ваш пароль $pw")
+    readln()
 }
 
