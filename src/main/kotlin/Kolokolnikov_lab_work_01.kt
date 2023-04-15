@@ -153,8 +153,8 @@ fun round(pair: MutableList<String>, numFinishedRound: Int): String{
     pair.shuffle()         // Перемешивает пару для случайного распределения на стороны
     var sideWinner: String // сторона победитель (X || O)
     var nameWinner = ""    // игрок победитель (user1 || user2)
-    val playerX = mapOf(pair[0] to X) // карты, что связывают игрока со стороной
-    val playerO = mapOf(pair[1] to O)
+    var playerX = mapOf(pair[0] to X) // карты, что связывают игрока со стороной
+    var playerO = mapOf(pair[1] to O)
     println("${pair[0]} — играет крестиками\n${pair[1]} — играет ноликами")
     displayBoard(board)
     do {
@@ -181,6 +181,10 @@ fun round(pair: MutableList<String>, numFinishedRound: Int): String{
             moveCountX = 0
             moveCountO = 0
             board = newBoard()
+            pair.shuffle()
+            playerX = mapOf(pair[0] to X)
+            playerO = mapOf(pair[1] to O)
+            println("${pair[0]} — играет крестиками\n${pair[1]} — играет ноликами")
             displayBoard(board)
         }
     } while (sideWinner == "")
@@ -303,8 +307,9 @@ fun main(){
     println("\nКолокольников лабораторная работа №1. (07.04.2023) \n")
 
     // 1. Регистрация
-    val accountMap = registration()
-    //ival accountMap = mutableMapOf<String, String>("l_one" to "1", "l_two" to "2", "l_three" to "3", "l_four" to "4")
+    //val accountMap = registration()
+    // Для пропуска регистрации
+    val accountMap = mutableMapOf<String, String>("l_one" to "1", "l_two" to "2", "l_three" to "3", "l_four" to "4")
 
     // 2. Начало полуфинала игры
     askYes("Начать игру? Если да, пропишите в консоли \"y\": ")
