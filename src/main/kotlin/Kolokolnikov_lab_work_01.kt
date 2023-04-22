@@ -57,7 +57,7 @@ fun getLoginOrPassword(name: String, registeredMap: MutableMap<String, String>):
         // Указания для пользователя при наличии ошибок в введённом пароле.
         if(!len){
             when(name){
-                "Логин" -> println("$name должен быть не менее 2 символов.")
+                "Логин" -> println("$name должен быть не менее 1 символа.")
                 "Пароль" -> println("$name должен быть не менее 8 символов.")
             }
         }
@@ -307,9 +307,9 @@ fun main(){
     println("\nКолокольников лабораторная работа №1. (07.04.2023) \n")
 
     // 1. Регистрация
-    val accountMap = registration()
+    //val accountMap = registration()
     // Для пропуска регистрации
-    //val accountMap = mutableMapOf<String, String>("l_one" to "1", "l_two" to "2", "l_three" to "3", "l_four" to "4")
+    val accountMap = mutableMapOf<String, String>("l_one" to "1", "l_two" to "2", "l_three" to "3", "l_four" to "4")
 
     // 2. Начало полуфинала игры
     askYes("Начать игру? Если да, пропишите в консоли \"y\": ")
