@@ -1,6 +1,5 @@
 package main.kotlin
 import kotlinx.coroutines.*
-import java.lang.NullPointerException
 import kotlin.system.measureTimeMillis
 
 fun main() {
