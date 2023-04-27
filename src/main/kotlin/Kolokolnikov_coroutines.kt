@@ -4,7 +4,7 @@ import java.lang.NullPointerException
 import kotlin.system.measureTimeMillis
 
 fun main() {
-    println("\n27.04.2023 \n")
+    println("\n27.04.2023 7.5 часов\n")
     var ch = readLine()
     /**
      * [  ] - своими словами.
