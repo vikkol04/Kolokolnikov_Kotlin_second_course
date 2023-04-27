@@ -1,7 +1,6 @@
 fun main() {
     println("\n18.04.2023 \n")
     var ch = readLine()
-
     //
     if (ch == "1"){
 
