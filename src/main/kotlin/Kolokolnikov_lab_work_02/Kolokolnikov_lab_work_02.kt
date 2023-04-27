@@ -1,13 +1,9 @@
+package Kolokolnikov_lab_work_02
 import kotlin.collections.mutableMapOf as mutableMapOf
-
-const val X = "X"
-const val O = "O"
-val EMPTY_NUMBERS = listOf(
-    "11", "12", "13",
-    "21", "22", "23",
-    "31", "32", "33",
-)
-const val TIE = "Ничья"
+val X = Consts.X
+val O = Consts.O
+val EMPTY_NUMBERS = Consts.EMPTY_NUMBERS
+val TIE = Consts.TIE
 
 fun registration(): MutableMap<String, String>{
     /**Собирает карту с логинами и паролями игроков.*/
@@ -48,9 +44,9 @@ fun getLoginOrPassword(name: String, registeredMap: MutableMap<String, String>):
         // Условия для проверки правильности введённого пароля.
         when(name){
             "Логин" -> {if(userInput.isNotEmpty()) len = true
-                        if(userInput !in registeredMap.keys) registeredInput = true}
+                if(userInput !in registeredMap.keys) registeredInput = true}
             "Пароль" -> {if(userInput.length >= 8) len = true
-                         registeredInput = true}
+                registeredInput = true}
         }
         userInput.forEach { i -> if(i.isDigit()) digit = true; if(i.uppercase() != i.lowercase()) letter = true}
 
@@ -307,9 +303,9 @@ fun main(){
     println("\nКолокольников лабораторная работа №1. (07.04.2023) \n")
 
     // 1. Регистрация
-    val accountMap = registration()
+    //val accountMap = registration()
     // Для пропуска регистрации
-    //val accountMap = mutableMapOf<String, String>("l_one" to "1", "l_two" to "2", "l_three" to "3", "l_four" to "4")
+    val accountMap = mutableMapOf<String, String>("l_one" to "1", "l_two" to "2", "l_three" to "3", "l_four" to "4")
 
     // 2. Начало полуфинала игры
     askYes("Начать игру? Если да, пропишите в консоли \"y\": ")
@@ -334,4 +330,3 @@ ${playersList[3]}
     gameEntry(accountMap, groupMap)
 
 }
-
