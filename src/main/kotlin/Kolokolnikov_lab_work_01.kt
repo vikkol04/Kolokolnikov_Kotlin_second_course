@@ -48,9 +48,9 @@ fun getLoginOrPassword(name: String, registeredMap: MutableMap<String, String>):
         // Условия для проверки правильности введённого пароля.
         when(name){
             "Логин" -> {if(userInput.isNotEmpty()) len = true
-                        if(userInput !in registeredMap.keys) registeredInput = true}
+                if(userInput !in registeredMap.keys) registeredInput = true}
             "Пароль" -> {if(userInput.length >= 8) len = true
-                         registeredInput = true}
+                registeredInput = true}
         }
         userInput.forEach { i -> if(i.isDigit()) digit = true; if(i.uppercase() != i.lowercase()) letter = true}
 
@@ -324,7 +324,6 @@ fun main(){
 Пара 1
 ${playersList[0]}
 ${playersList[1]}
-
 Пара 2
 ${playersList[2]}
 ${playersList[3]}
