@@ -1,6 +1,9 @@
 package Kolokolnikov_lab_work_02_pack
 
 object Consts{
+    /**
+     * Объект, содержащий константы для игры в крестики нолики.
+     * */
     const val X = "X"
     const val O = "O"
     val EMPTY_NUMBERS = listOf(
@@ -12,6 +15,7 @@ object Consts{
     const val TIE = "Ничья"
 }
 
+// Функции, для общего использования.
 fun registration(playersList: MutableList<Player>){
     /**Собирает карту с логинами и паролями игроков.*/
     val mapForReg = mutableMapOf<String, String>()

@@ -4,6 +4,10 @@ import kotlin.math.sqrt
 
 
 class TicTacToe() {
+    /**
+     *  Класс по которому создаётся экземпляр игры в крестики-ноликик, тут находятся методы, устанавливающие
+     * правила игры, и свойства, определяющие константы в игре и экземпляры игроков.
+     * */
     val X: String = Consts.X
     val O: String = Consts.O
     val EMPTY_NUMBERS: List<String> = Consts.EMPTY_NUMBERS
@@ -195,6 +199,11 @@ ${playersList[3].login}
 }
 
 class Board {
+    /**
+     * Класс по которому создаётся экземпляр доски для игры в крестики-нолики.
+     * Тут находятся методы, устанавливающие взаимодействия с доской,
+     * и свойства, определяющие расположение объектов на доске.
+     * */
     val EMPTY_NUMBERS: List<String> = Consts.EMPTY_NUMBERS
     var cellState = mutableListOf<String>()
 
@@ -225,6 +234,11 @@ class Board {
 }
 
 class Player {
+    /**
+     * Класс по которому создаётся экземпляры игроков для игры в крестики-нолики.
+     * Тут находятся методы, устанавливающие действия игроков,
+     * и свойства, определяющие положение игрока в игре и другое.
+     * */
     var login: String = ""
     var password: String? = ""
     var side: String = ""
