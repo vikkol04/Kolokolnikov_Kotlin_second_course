@@ -209,8 +209,9 @@ class Board {
 
     fun newBoard(){
         /**Создаёт новую игровую доску в виде списка.*/
-        for (square in 0 until 9)
-            this.cellState[square] = EMPTY_NUMBERS[square]
+        for (square in 0 until 9) {
+            this.cellState.add(square, EMPTY_NUMBERS[square])
+        }
     }
 
     fun displayBoard() {
